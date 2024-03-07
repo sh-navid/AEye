@@ -60,12 +60,12 @@ The content of this page is imported from [here](https://github.com/sh-navid/Hea
 
 ### AI Types
 
-1. Reactive Machines
+1. Self-Aware
 1. Limited Memory
 1. Theory of Mind
-1. Self-Aware
-1. Artificial Narrow Intelligence (ANI)
+1. Reactive Machines
 1. Artificial General Intelligence
+1. Artificial Narrow Intelligence (ANI)
 1. Artificial Super Intelligence (ASI)
 
 #### ML
@@ -85,8 +85,8 @@ The content of this page is imported from [here](https://github.com/sh-navid/Hea
      - DBScan
      - MeanShift
      - FuzzyCMean
-     - Agglomerative
      - Hierarchical
+     - Agglomerative
      - Knowledge-based
   1. Dimension Reduction (Generalization)
      - LDA
@@ -103,10 +103,14 @@ The content of this page is imported from [here](https://github.com/sh-navid/Hea
   1. Stacking
   1. Boosting
 - Reinforcment Learning
-  1. A3C `Is this in correct category??`
+  1. A3C
+    > [!WARNING]
+    > `Is this in correct category??`
   1. SARSA
   1. QLearning
-  1. GeneticAlgorithm `Is this in correct category??`
+  1. GeneticAlgorithm 
+    > [!WARNING]
+    > `Is this in correct category??`
   1. DeepQNetwork (DQN)
 
 ### AI Usage
