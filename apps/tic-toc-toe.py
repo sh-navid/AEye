@@ -55,7 +55,7 @@ class Agent:
 
 matches=[]
 
-for i in range(0,1000):
+for i in range(0,30):
     g = Game()
     players=[Agent("X"),Agent("O")]
     while True:
@@ -75,4 +75,62 @@ for i in range(0,1000):
     print("################################################")
 
     print(matches)
+
+L1,L2,L3,L4,L5,L6=set(),set(),set(),set(),set(),set()
+for m in matches:
+    L1.add(m[0:2])
+    L2.add(m[2:4])
+    L3.add(m[4:6])
+    L4.add(m[6:8])
+    L5.add(m[8])
+    L6.add(m[10])
+
+
+L1,L2,L3,L4,L5,L6=tuple(L1),tuple(L2),tuple(L3),tuple(L4),tuple(L5),tuple(L6)
+for i,m in enumerate(matches):
+    printed=False
+
+    try:
+        print(L1[i],"   ",end="")
+        printed=True
+    except:
+        print("  ","   ",end="")
+    
+    try:
+        print(L2[i],"   ",end="")
+        printed=True
+    except:
+        print("  ","   ",end="")
+    
+    try:
+        print(L3[i],"   ",end="")
+        printed=True
+    except:
+        print("  ","   ",end="")
+
+    try:
+        print(L4[i],"   ",end="")
+        printed=True
+    except:
+        print("  ","   ",end="")
+    
+    try:
+        print(L5[i],"   ",end="")
+        printed=True
+    except:
+        print("  ","   ",end="")
+
+    try:
+        print(L6[i],"   ",end="")
+        printed=True
+    except:
+        print("  ","   ",end="")
+
+
+    
+
+    print()
+
+    if not printed:
+        break
     
