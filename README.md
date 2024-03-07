@@ -128,7 +128,7 @@ The content of this page is imported from [here](https://github.com/sh-navid/Hea
 ### ML/AI Tools
 1. [TensorFlow](https://www.tensorflow.org/)
 1. [PyTorch](https://pytorch.org/)
-1. Keras
+1. [Keras](https://keras.io/)
 1. Chain
 1. Theano
 1. Auto-WEKA
