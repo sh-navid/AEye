@@ -34,7 +34,7 @@ The content of this page is imported from [here](https://github.com/sh-navid/Hea
     1. Mask R-CNN
         >> Extension of R-CNN
     1. [GANs <sub>Generative Adversarial Networks</sub>](https://realpython.com/generative-adversarial-networks/)
-        >> They can create new images by learning from existing ones
+        >> To create material such as image, music, text, ...
     1. Siamese Networks
         >> Image classification and similarity learning
     1. CPMs <sub>Convolutional Pos Machines</sub>
