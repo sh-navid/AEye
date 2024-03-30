@@ -33,7 +33,7 @@ The content of this page is imported from [here](https://github.com/sh-navid/Hea
         >> Real time object detection algorithm
     1. Mask R-CNN
         >> Extension of R-CNN
-    1. GANs <sub>Generative Adversarial Networks</sub>
+    1. [GANs <sub>Generative Adversarial Networks</sub>](https://realpython.com/generative-adversarial-networks/)
         >> They can create new images by learning from existing ones
     1. Siamese Networks
         >> Image classification and similarity learning
@@ -156,3 +156,4 @@ The content of this page is imported from [here](https://github.com/sh-navid/Hea
 - [ ] https://dafriedman97.github.io/mlbook/content/introduction.html
 - [ ] https://www.geeksforgeeks.org/machine-learning-with-python/
 - [ ] https://www.kaggle.com/code/milan400/machine-learning-algorithms-from-scratch
+- [ ] [Generative Adversarial Networks](https://realpython.com/generative-adversarial-networks/)
