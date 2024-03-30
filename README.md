@@ -158,3 +158,4 @@ The content of this page is imported from [here](https://github.com/sh-navid/Hea
 - [ ] https://www.kaggle.com/code/milan400/machine-learning-algorithms-from-scratch
 - [ ] [Generative Adversarial Networks](https://realpython.com/generative-adversarial-networks/)
 - [ ] [Simpelest GAN Possible](https://towardsdatascience.com/pointgan-a-breakdown-of-the-simplest-gan-possible-3a15244dc508)
+- [ ] [Simple GAN Model](https://medium.com/@wasuratme96/building-a-simple-gan-model-9bfea22c651f)
