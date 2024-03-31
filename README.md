@@ -1,6 +1,17 @@
 # AiN
 - Disclaimer: Part or all of this repo may be wrong
 
+## GAN Idea
+```mermaid
+    flowchart LR
+    Random_Input --> Genrator --> Sample_ --> Discriminator --> Discriminator_Loss
+    Discriminator --> Generator_Loss
+    Real_Image --> Sample --> Discriminator
+
+```
+
+## AI
+
 ### AI Domains
 
 1. ML <sub>Machine learning</sub>
