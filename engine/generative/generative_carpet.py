@@ -32,6 +32,7 @@ def creator():
         y -= random.choice([0, 1])
         if y < 0:
             y = 0
+    sample = NArray.unfold(sample)
     return sample
 
 
@@ -51,4 +52,6 @@ def discriminator():
     pass
 
 
-NArray.visualize(creator())
+sample = creator()
+NArray.visualize(sample)
+NArray.visualize(NArray.rotate90(sample))
