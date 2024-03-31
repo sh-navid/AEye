@@ -33,6 +33,8 @@ def creator():
         if y < 0:
             y = 0
     sample = NArray.unfold(sample)
+    if random.choice([0,1])==1:
+        sample=NArray.rotate90(sample)
     return sample
 
 
@@ -40,6 +42,7 @@ def creator():
 def generator():
     """
     This is the fake data generator
+    FIXME: this should be NN
     """
     pass
 
@@ -48,10 +51,10 @@ def generator():
 def discriminator():
     """
     This is the investigator
+    FIXME: this should be NN
     """
     pass
 
 
 sample = creator()
 NArray.visualize(sample)
-NArray.visualize(NArray.rotate90(sample))
