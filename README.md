@@ -1,7 +1,11 @@
 # AiN
 - Disclaimer: Part or all of this repo may be wrong
 
-## GAN Idea
+## NN 
+
+### Steps of simple NN
+
+## GAN
 ```mermaid
     flowchart LR
     Random_Input --> Genrator --> Sample_ --> Discriminator --> Discriminator_Loss
@@ -9,7 +13,9 @@
     Real_Image --> Sample --> Discriminator
 
 ```
-Steps of simple GAN
+
+
+### Steps of simple GAN
 1. Define Generator
     1. Create a function to generate random noise
 1. Define Discriminator
