@@ -3,9 +3,16 @@
 
 ## NN 
 
-### Steps of simple NN
+### Steps
+1. Init
+1. Forward Propagation
+1. Activation Function
+1. Backward Propagation
+1. Training NN
+1. Testing NN
 
 ## GAN
+### Flowchart
 ```mermaid
     flowchart LR
     Random_Input --> Genrator --> Sample_ --> Discriminator --> Discriminator_Loss
@@ -15,7 +22,7 @@
 ```
 
 
-### Steps of simple GAN
+### Steps
 1. Define Generator
     1. Create a function to generate random noise
 1. Define Discriminator
