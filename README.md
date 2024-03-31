@@ -155,3 +155,4 @@
 - [ ] [Generative Adversarial Networks](https://realpython.com/generative-adversarial-networks/)
 - [ ] [Simpelest GAN Possible](https://towardsdatascience.com/pointgan-a-breakdown-of-the-simplest-gan-possible-3a15244dc508)
 - [ ] [Simple GAN Model](https://medium.com/@wasuratme96/building-a-simple-gan-model-9bfea22c651f)
+- [ ] [Develope a 1D GAN Model](https://machinelearningmastery.com/how-to-develop-a-generative-adversarial-network-for-a-1-dimensional-function-from-scratch-in-keras/)
