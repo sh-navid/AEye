@@ -1,4 +1,4 @@
-# AISim
+# AiN
 The content of this page is imported from [here](https://github.com/sh-navid/Headlines/blob/master/other/ai/README.md?plain=1)
 
 ## AI
