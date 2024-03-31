@@ -9,6 +9,15 @@
     Real_Image --> Sample --> Discriminator
 
 ```
+Steps
+1. Define Generator
+    1. Create a function to generate random noise
+1. Define Discriminator
+    1. Create a function to distinguishes between real and generated data
+1. Generate fake data
+1. Define a traning loop
+    1. Discriminator learns to distinguish between fake and real data
+    1. Generator learns to create data that fools the Discriminator
 
 ## AI
 
