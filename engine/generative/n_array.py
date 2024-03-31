@@ -108,8 +108,11 @@ class NArray:
 
         for row in arr:
             for cel in row:
-                print(_map[cel], end=" ")
+                print(_map[cel], end="  ")
             print()
+
+    def rotate90(arr):
+        return [row[::-1] for row in [list(row) for row in zip(*arr)]]
 
 
 if __name__ == "__main__":
