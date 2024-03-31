@@ -18,6 +18,8 @@ Steps
 1. Define a traning loop
     1. Discriminator learns to distinguish between fake and real data
     1. Generator learns to create data that fools the Discriminator
+    1. Each one tries to learn to outdo the other
+1. Evaluate the GAN
 
 ## AI
 
@@ -160,6 +162,7 @@ Steps
 ### ML/AI Plugins
 
 ### ML/AI Apps
+- [Perplexity](https://www.perplexity.ai)
 
 ### Useful links
 - [ ] https://www.w3schools.com/python/python_ml_getting_started.asp
