@@ -5,8 +5,14 @@
 
 ### Steps
 1. Init
+    1. Number of input/outpur nodes
+    1. Hidden layers
+    1. Neurons in each layer
 1. Forward Propagation
 1. Activation Function
+    1. sigmoid
+    1. tanh
+    1. ReLU
 1. Backward Propagation
 1. Training NN
 1. Testing NN
@@ -33,6 +39,8 @@
     1. Generator learns to create data that fools the Discriminator
     1. Each one tries to learn to outdo the other
 1. Evaluate the GAN
+
+___
 
 ## AI
 
