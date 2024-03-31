@@ -9,7 +9,7 @@
     Real_Image --> Sample --> Discriminator
 
 ```
-Steps
+Steps of simple GAN
 1. Define Generator
     1. Create a function to generate random noise
 1. Define Discriminator
