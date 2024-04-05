@@ -1,5 +1,6 @@
-from n_array import NArray
 import random
+from n_array import NArray
+
 
 class Sample:
     def creator(N):
@@ -34,7 +35,6 @@ class Sample:
         if random.choice([0, 1]) == 1:
             sample = NArray.rotate90(sample)
         return sample
-
 
     def creator2(N):
         """
@@ -78,7 +78,6 @@ class Sample:
             sample = NArray.rotate90(sample)
         return sample
 
-
     def generator(N):
         """
         This is the fake data generator
@@ -94,8 +93,6 @@ class Sample:
         if random.choice([0, 1]) == 1:
             sample = NArray.rotate90(sample)
         return sample
-
-
 
     def discriminator(sample):
         """

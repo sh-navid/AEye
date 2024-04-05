@@ -1,24 +1,21 @@
-import random
-from n_array import NArray
-from pattern import Pattern
 import sys
 from sample import Sample
+from pattern import Pattern
 
 N = 128  # Pattern Size
-
 
 
 iteration = 0
 input, INPUTS = 1, 4
 layer, LAYERS = 1, 5
 
-func={
-    1:Sample.creator,
-    2:Sample.creator2,
-    3:Sample.generator,
-    4:Sample.creator2,
-    5:Sample.creator2,
-    6:Sample.creator2,
+func = {
+    1: Sample.creator,
+    2: Sample.creator2,
+    3: Sample.generator,
+    4: Sample.creator2,
+    5: Sample.creator2,
+    6: Sample.creator2,
 }
 
 while True:
