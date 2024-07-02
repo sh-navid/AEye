@@ -18,8 +18,6 @@
         { size: 50, angle: 0 },
         { size: 40, angle: 0 },
         { size: 30, angle: 0 },
-        { size: 20, angle: 0 },
-        { size: 10, angle: 0 },
       ];
 
       const draw = () => {
@@ -34,7 +32,7 @@
 
         for (a of arms) {
           a.angle +=
-            (Math.random() > 0.5 ? +1 : -1) * parseInt(Math.random() * 3);
+            (Math.random() > 0.5 ? +1 : -1) * Math.random() * 3;
 
 
             ctx.lineWidth = a.size/3;
