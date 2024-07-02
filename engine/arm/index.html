@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <canvas width="700px" height="700px" style="background: lightgray"></canvas>
+    <script>
+      var c = document.getElementsByTagName("canvas")[0];
+      var ctx = c.getContext("2d");
+      
+
+      let arms = [
+        { size: 90, angle: 0 },
+        { size: 80, angle: 0 },
+        { size: 70, angle: 0 },
+        { size: 60, angle: 0 },
+        { size: 50, angle: 0 },
+        { size: 40, angle: 0 },
+        { size: 30, angle: 0 },
+        { size: 20, angle: 0 },
+        { size: 10, angle: 0 },
+      ];
+
+      const draw = () => {
+        c.width += 0; //clear screen
+
+        // ctx.fillStyle = "black";
+
+        let X = 300,
+          Y = 300;
+
+        ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)}`, X, Y);
+
+        for (a of arms) {
+          a.angle +=
+            (Math.random() > 0.5 ? +1 : -1) * parseInt(Math.random() * 3);
+
+
+            ctx.lineWidth = a.size/3;
+
+            ctx.lineCap = "round";
+          ctx.moveTo(X, Y);
+          let x = X + a.size * Math.cos((a.angle * Math.PI) / 180);
+          let y = Y + a.size * Math.sin((a.angle * Math.PI) / 180);
+          ctx.lineTo(x, y);
+          ctx.stroke();
+
+          X = x;
+          Y = y;
+        }
+
+        ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)}`, X, Y);
+      };
+
+      setInterval(draw, 1);
+    </script>
+  </body>
+</html>
