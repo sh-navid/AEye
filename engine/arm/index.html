@@ -8,16 +8,17 @@
     <script>
       var c = document.getElementsByTagName("canvas")[0];
       var ctx = c.getContext("2d");
-      
 
       let arms = [
-        { size: 90, angle: 0 },
-        { size: 80, angle: 0 },
-        { size: 70, angle: 0 },
-        { size: 60, angle: 0 },
-        { size: 50, angle: 0 },
-        { size: 40, angle: 0 },
-        { size: 30, angle: 0 },
+        { size: 90, currentAngle: 0, toAngle: 0 },
+        { size: 90, currentAngle: 0, toAngle: 0 },
+        { size: 70, currentAngle: 0, toAngle: 0 },
+        { size: 70, currentAngle: 0, toAngle: 0 },
+        { size: 70, currentAngle: 0, toAngle: 0 },
+        { size: 50, currentAngle: 0, toAngle: 0 },
+        { size: 50, currentAngle: 0, toAngle: 0 },
+        { size: 50, currentAngle: 0, toAngle: 0 },
+        { size: 50, currentAngle: 0, toAngle: 0 },
       ];
 
       const draw = () => {
@@ -30,28 +31,51 @@
 
         ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)}`, X, Y);
 
-        for (a of arms) {
-          a.angle +=
-            (Math.random() > 0.5 ? +1 : -1) * Math.random() * 3;
+        for (i in arms) {
+          let a = arms[i];
 
+          if (parseInt(a.currentAngle) < parseInt(a.toAngle)) a.currentAngle++;
+          else if (parseInt(a.currentAngle) > parseInt(a.toAngle))
+            a.currentAngle--;
 
-            ctx.lineWidth = a.size/3;
+          ctx.lineCap = "round";
+          ctx.lineWidth = a.size / 3;
+          ctx.strokeStyle = "#000000CC";
 
-            ctx.lineCap = "round";
+          ctx.beginPath();
           ctx.moveTo(X, Y);
-          let x = X + a.size * Math.cos((a.angle * Math.PI) / 180);
-          let y = Y + a.size * Math.sin((a.angle * Math.PI) / 180);
+
+          let angle = 0;
+          for (ii = 0; ii <= i; ii++) angle += arms[ii].currentAngle;
+
+          let x = X + a.size * Math.cos((angle * Math.PI) / 180);
+          let y = Y + a.size * Math.sin((angle * Math.PI) / 180);
           ctx.lineTo(x, y);
+          ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)},a:${angle}`, x, y);
+          ctx.stroke();
+
+          ctx.strokeStyle = "white";
+          ctx.lineWidth = a.size / 25;
+
+          ctx.beginPath();
+          ctx.arc(X, Y, a.size / 20, 0, 2 * Math.PI);
           ctx.stroke();
 
           X = x;
           Y = y;
         }
 
-        ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)}`, X, Y);
+        // ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)}`, X, Y);
+      };
+
+      const update = () => {
+        let ran = parseInt(Math.random() * arms.length);
+        let newAngle = Math.random() * 360;
+        arms[ran].toAngle = newAngle;
       };
 
       setInterval(draw, 1);
+      setInterval(update, 250);
     </script>
   </body>
 </html>
