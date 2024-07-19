@@ -6,19 +6,90 @@
   <body>
     <canvas width="700px" height="700px" style="background: lightgray"></canvas>
     <script>
+      const degToRad = (deg) => deg * (Math.PI / 180);
+
+      const sumAngle = (armIndex) => {
+        let angle = -90;
+        for (let i = 0; i <= armIndex; i++) angle += arms[i].currentAngle;
+        return angle % 360;
+      };
+
+      // -------------------------------------------------------------------------
+
       var c = document.getElementsByTagName("canvas")[0];
       var ctx = c.getContext("2d");
 
       let arms = [
-        { size: 90, currentAngle: 0, toAngle: 0 },
-        { size: 90, currentAngle: 0, toAngle: 0 },
-        { size: 70, currentAngle: 0, toAngle: 0 },
-        { size: 70, currentAngle: 0, toAngle: 0 },
-        { size: 70, currentAngle: 0, toAngle: 0 },
-        { size: 50, currentAngle: 0, toAngle: 0 },
-        { size: 50, currentAngle: 0, toAngle: 0 },
-        { size: 50, currentAngle: 0, toAngle: 0 },
-        { size: 50, currentAngle: 0, toAngle: 0 },
+        {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -90,
+          maxAngle: 90,
+        },
+        {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        },
+        {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        },
+        {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        }, {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        }, {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        }, {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        }, {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        }, {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        }, {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        }, {
+          size: 40,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -45,
+          maxAngle: 45,
+        },
       ];
 
       const draw = () => {
@@ -26,10 +97,10 @@
 
         // ctx.fillStyle = "black";
 
-        let X = 300,
-          Y = 300;
+        let X = 350,
+          Y = 600;
 
-        ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)}`, X, Y);
+        // ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)}`, X, Y);
 
         for (i in arms) {
           let a = arms[i];
@@ -39,26 +110,39 @@
             a.currentAngle--;
 
           ctx.lineCap = "round";
-          ctx.lineWidth = a.size / 3;
+          ctx.lineWidth = 10;
           ctx.strokeStyle = "#000000CC";
 
           ctx.beginPath();
           ctx.moveTo(X, Y);
 
-          let angle = 0;
-          for (ii = 0; ii <= i; ii++) angle += arms[ii].currentAngle;
+          let angle = sumAngle(i);
 
-          let x = X + a.size * Math.cos((angle * Math.PI) / 180);
-          let y = Y + a.size * Math.sin((angle * Math.PI) / 180);
+          let x = X + a.size * Math.cos(degToRad(angle));
+          let y = Y + a.size * Math.sin(degToRad(angle));
           ctx.lineTo(x, y);
-          ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)},a:${angle}`, x, y);
+          // ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)},a:${angle}`, x, y);
+          ctx.fillText(`         a:${angle}`, x, y);
           ctx.stroke();
 
-          ctx.strokeStyle = "white";
-          ctx.lineWidth = a.size / 25;
+          ctx.strokeStyle = "#ffffffcc";
+          ctx.lineWidth = 2;
 
           ctx.beginPath();
-          ctx.arc(X, Y, a.size / 20, 0, 2 * Math.PI);
+          ctx.arc(X, Y, 5, 0, 2 * Math.PI);
+          ctx.stroke();
+
+          let s = sumAngle(i - 1);
+
+          ctx.beginPath();
+          ctx.arc(
+            X,
+            Y,
+            15,
+            degToRad(a.minAngle + s),
+            degToRad(a.maxAngle + s),
+            false
+          );
           ctx.stroke();
 
           X = x;
@@ -69,13 +153,19 @@
       };
 
       const update = () => {
-        let ran = parseInt(Math.random() * arms.length);
-        let newAngle = Math.random() * 360;
-        arms[ran].toAngle = newAngle;
+        let randomJointIndex = parseInt(Math.random() * arms.length);
+
+        const joint = arms[randomJointIndex];
+        let s = sumAngle(randomJointIndex - 1);
+
+        // let newJointAngle = Math.random() * 360;
+        let newJointAngle =
+          joint.minAngle + Math.random() * (joint.maxAngle - joint.minAngle);
+        joint.toAngle = newJointAngle;
       };
 
       setInterval(draw, 1);
-      setInterval(update, 250);
+      setInterval(update, 50);
     </script>
   </body>
 </html>
