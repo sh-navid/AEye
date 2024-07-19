@@ -3,14 +3,24 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      margin: 0 auto;
+    }
+  </style>
   <body>
+    <img id="joint" src="./joint.png" style="display: none" />
     <canvas width="700px" height="700px" style="background: lightgray"></canvas>
     <script>
       const degToRad = (deg) => deg * (Math.PI / 180);
 
       const sumAngle = (armIndex) => {
         let angle = -90;
-        for (let i = 0; i <= armIndex; i++) angle += arms[i].currentAngle;
+        for (let i = 0; i <= armIndex; i++) angle += joints[i].currentAngle;
         return angle % 360;
       };
 
@@ -19,98 +29,89 @@
       var c = document.getElementsByTagName("canvas")[0];
       var ctx = c.getContext("2d");
 
-      let arms = [
-        {
-          size: 40,
+      const ratio = 9 / 16;
+
+      function resize() {
+        let nW = window.innerWidth,
+          nH = window.innerHeight;
+
+        if (nW / ratio > nH) {
+          nW = nH * ratio;
+        } else {
+          nH = nW / ratio;
+        }
+
+        c.width = nW;
+        c.height = nH;
+      }
+
+      window.addEventListener("resize", resize);
+      resize();
+
+      let joints = [
+      {
+          size: 50,
+          currentAngle: 0,
+          toAngle: 0,
+          minAngle: -90,
+          maxAngle: 90,
+        },{
+          size: 50,
           currentAngle: 0,
           toAngle: 0,
           minAngle: -90,
           maxAngle: 90,
         },
-        {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        },
-        {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        },
-        {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        }, {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        }, {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        }, {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        }, {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        }, {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        }, {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        }, {
-          size: 40,
-          currentAngle: 0,
-          toAngle: 0,
-          minAngle: -45,
-          maxAngle: 45,
-        },
       ];
+
+      let object = {
+        x: 270,
+        y: c.height / 1.2-50,
+        size: 50,
+      };
+
+      let end = false;
+      let updateCount = 0;
+
+      let cx = 0,
+        cy = 0;
 
       const draw = () => {
         c.width += 0; //clear screen
 
         // ctx.fillStyle = "black";
 
-        let X = 350,
-          Y = 600;
+        let X = c.width / 2,
+          Y = c.height / 1.2;
 
         // ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)}`, X, Y);
 
-        for (i in arms) {
-          let a = arms[i];
+        for (i in joints) {
+          let joint = joints[i];
 
-          if (parseInt(a.currentAngle) < parseInt(a.toAngle)) a.currentAngle++;
-          else if (parseInt(a.currentAngle) > parseInt(a.toAngle))
-            a.currentAngle--;
+          if (!end) {
+            if (parseInt(joint.currentAngle) < parseInt(joint.toAngle))
+              joint.currentAngle++;
+            else if (parseInt(joint.currentAngle) > parseInt(joint.toAngle))
+              joint.currentAngle--;
+          } else {
+            end = false;
+            cx = 0;
+            cy = 0;
+            let newAngle = 20 + parseInt(Math.random() * 70);
+            let newJoint = {
+              size: 30 + parseInt(Math.random() * 10),
+              currentAngle: 0,
+              toAngle: 0,
+              minAngle: -newAngle,
+              maxAngle: newAngle,
+            };
+            joints.push(newJoint);
+            return;
+          }
 
           ctx.lineCap = "round";
-          ctx.lineWidth = 10;
+          ctx.lineWidth = 4;
           ctx.strokeStyle = "#000000CC";
 
           ctx.beginPath();
@@ -118,15 +119,16 @@
 
           let angle = sumAngle(i);
 
-          let x = X + a.size * Math.cos(degToRad(angle));
-          let y = Y + a.size * Math.sin(degToRad(angle));
+          let x = X + joint.size * Math.cos(degToRad(angle));
+          let y = Y + joint.size * Math.sin(degToRad(angle));
           ctx.lineTo(x, y);
           // ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)},a:${angle}`, x, y);
-          ctx.fillText(`         a:${angle}`, x, y);
+
+          ctx.fillText(`--------->${joint.currentAngle}`, X, Y);
           ctx.stroke();
 
-          ctx.strokeStyle = "#ffffffcc";
-          ctx.lineWidth = 2;
+          ctx.strokeStyle = "#ffffff";
+          ctx.lineWidth = 1;
 
           ctx.beginPath();
           ctx.arc(X, Y, 5, 0, 2 * Math.PI);
@@ -139,33 +141,61 @@
             X,
             Y,
             15,
-            degToRad(a.minAngle + s),
-            degToRad(a.maxAngle + s),
-            false
+            degToRad(joint.minAngle + s),
+            degToRad(joint.maxAngle + s),
+            true
           );
           ctx.stroke();
 
           X = x;
           Y = y;
+
+          cx = x;
+          cy = y;
         }
 
-        // ctx.fillText(`x:${parseInt(X)},y:${parseInt(Y)}`, X, Y);
+        ctx.beginPath();
+        ctx.fillStyle = "#2100caaa";
+        ctx.lineWidth = 2;
+        ctx.rect(object.x, object.y, object.size, object.size);
+        ctx.fillText(
+          `x:${parseInt(X)}, y:${parseInt(Y)}`,
+          object.x,
+          object.y - 5
+        );
+        ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.fillText(`x:${parseInt(X)}, y:${parseInt(Y)}`, X, Y);
+
+        ctx.fillText(`Level: ${joints.length}, Update: ${updateCount}`, 50, 50);
       };
 
       const update = () => {
-        let randomJointIndex = parseInt(Math.random() * arms.length);
+        if (end) {
+          return;
+        }
 
-        const joint = arms[randomJointIndex];
+        updateCount++;
+
+        let randomJointIndex = parseInt(Math.random() * joints.length);
+
+        const joint = joints[randomJointIndex];
         let s = sumAngle(randomJointIndex - 1);
 
         // let newJointAngle = Math.random() * 360;
         let newJointAngle =
           joint.minAngle + Math.random() * (joint.maxAngle - joint.minAngle);
         joint.toAngle = newJointAngle;
+
+        if (cx > object.x && cx < object.x + object.size)
+          if (cy > object.y && cy < object.y + object.size) {
+            end = true;
+          }
       };
 
       setInterval(draw, 1);
-      setInterval(update, 50);
+      setInterval(update, 100);
     </script>
   </body>
 </html>
