@@ -189,16 +189,16 @@ ___
 - [Pi.ai](https://pi.ai)
 
 ### Useful links
-- [ ] https://www.w3schools.com/python/python_ml_getting_started.asp
-- [ ] https://www.springboard.com/blog/data-science/how-to-learn-machine-learning/
-- [ ] https://www.enjoyalgorithms.com/blog/coding-ml-from-scratch/
-- [ ] https://github.com/eriklindernoren/ML-From-Scratch
-- [ ] https://www.kdnuggets.com/2022/02/7-steps-mastering-machine-learning-python.html
-- [ ] https://www.analyticsvidhya.com/blog/2021/10/implementing-artificial-neural-networkclassification-in-python-from-scratch/
-- [ ] https://www.learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/
-- [ ] https://dafriedman97.github.io/mlbook/content/introduction.html
-- [ ] https://www.geeksforgeeks.org/machine-learning-with-python/
-- [ ] https://www.kaggle.com/code/milan400/machine-learning-algorithms-from-scratch
+- [ ] [Getting started with ML](https://www.w3schools.com/python/python_ml_getting_started.asp)
+- [ ] [Learn machine learning](https://www.springboard.com/blog/data-science/how-to-learn-machine-learning/)
+- [ ] [Coding ML from scratch](https://www.enjoyalgorithms.com/blog/coding-ml-from-scratch/)
+- [ ] [ML from scratch](https://github.com/eriklindernoren/ML-From-Scratch)
+- [ ] [Mastering machine learning](https://www.kdnuggets.com/2022/02/7-steps-mastering-machine-learning-python.html)
+- [ ] [Artificial neural network classification](https://www.analyticsvidhya.com/blog/2021/10/implementing-artificial-neural-networkclassification-in-python-from-scratch/)
+- [ ] [Reinforcement Q-learning](https://www.learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/)
+- [ ] [ML introduction](https://dafriedman97.github.io/mlbook/content/introduction.html)
+- [ ] [Machine learning with python](https://www.geeksforgeeks.org/machine-learning-with-python/)
+- [ ] [Machine learning algorithms from scratch](https://www.kaggle.com/code/milan400/machine-learning-algorithms-from-scratch)
 - [ ] [Generative Adversarial Networks](https://realpython.com/generative-adversarial-networks/)
 - [ ] [Simpelest GAN Possible](https://towardsdatascience.com/pointgan-a-breakdown-of-the-simplest-gan-possible-3a15244dc508)
 - [ ] [Simple GAN Model](https://medium.com/@wasuratme96/building-a-simple-gan-model-9bfea22c651f)
