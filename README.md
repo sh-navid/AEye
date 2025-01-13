@@ -3,42 +3,6 @@
 
 ## NN 
 
-### Example
-```mermaid
-    graph LR
-    
-    I(Input)
-    O(Output)
-
-    HL1_F1(Func)
-    HL1_F2(Func)
-
-    HL2_F1(Func)
-    HL2_F2(Func)
-
-    HL3_F1(Func)
-    HL3_F2(Func)
-
-    I --> HL1_F1
-    I --> HL1_F2
-
-    HL1_F1 --> HL2_F1
-    HL1_F1 --> HL2_F2
-
-    HL1_F2 --> HL2_F1
-    HL1_F2 --> HL2_F2
-
-    HL2_F1 --> HL3_F1
-    HL2_F2 --> HL3_F2
-
-    HL2_F1 --> HL3_F2
-    HL2_F2 --> HL3_F1
-
-    HL3_F1 --> O
-    HL3_F2 --> O
-
-```
-
 ### Steps
 1. Init
     1. Number of input/outpur nodes
