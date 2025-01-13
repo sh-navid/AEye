@@ -1,4 +1,4 @@
-# NaBot
+# LearnAI
 - Disclaimer: Its on your own !!
 
 - An engine about to know how to reach dynamic motor functionality for any robot with any number of dynamic modules
