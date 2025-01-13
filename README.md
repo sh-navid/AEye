@@ -184,6 +184,9 @@ ___
 
 ### ML/AI Apps
 - [Perplexity](https://www.perplexity.ai)
+- [DeepSeek](https://www.deepseek.com)
+- [Poe](https://poe.com/)
+- [Pi.ai](https://pi.ai)
 
 ### Useful links
 - [ ] https://www.w3schools.com/python/python_ml_getting_started.asp
