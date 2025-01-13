@@ -1,4 +1,4 @@
-# AIHype
+# AEye
 - Disclaimer: Its on your own !!
 
 ## NN 
